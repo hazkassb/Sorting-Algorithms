@@ -1,10 +1,12 @@
 package insertionSort;
 
+import java.util.Arrays;
+
 /**
  * 
- * @author HamzaBoubacar
+ * @author HamzaKassomou
  * 
- * Implements the insertion sort algorithm		==> O(n^2)
+ * Implements the insertion sort algorithm  ==> Time Complexity: O(n^2) in worst case, O(n) if the array is already sorted
  */
 
 public class InsertionSort {
@@ -21,7 +23,8 @@ public class InsertionSort {
 			// Insert element at position nextPos 
 			// in the sorted subarray. 
 			
-			insert(table, nextPos); } // End for.
+			insert(table, nextPos); 
+			} // End for.
 		} // End sort.
 	
 	
@@ -35,7 +38,7 @@ public class InsertionSort {
 		T nextVal = table[nextPos]; 
 		// Element to insert. 
 		
-		while (nextPos > 0 && nextVal.compareTo(table [nextPos - 1]) < 0) { 
+		while (nextPos > 0 && nextVal.compareTo(table[nextPos - 1]) < 0) { 
 			table[nextPos] = table[nextPos - 1]; 
 			// Shift down. 
 			nextPos--; 
@@ -44,6 +47,20 @@ public class InsertionSort {
 		
 		// Insert nextVal at nextPos.
 		table[nextPos] = nextVal;
+//		System.out.println(Arrays.toString(table));	Uncomment this line to trace the progress of the method
 	}
+	
+	
+	
+	//LET'S TEST THE METHOD
+		public static void main(String[] args) {
+			Integer[] arr = new Integer[] {40, 35, 80, 75, 90, 70, 75, 50, 22};
+			
+			System.out.println("Before: "+ Arrays.toString(arr));
+			
+			InsertionSort.sort(arr);
+			
+			System.out.println("After: "+ Arrays.toString(arr));
+		}
 
 }

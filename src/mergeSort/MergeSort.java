@@ -2,7 +2,7 @@ package mergeSort;
 
 /**
  * 
- * @author HamzaBoubacar
+ * @author HamzaKassomou
  *
  *	Implements the recursive merge sort algorithm. In this version, copies
  *	of the sub-arrays are made, sorted, and then merged
@@ -70,7 +70,9 @@ public class MergeSort {
 		if(table.length > 1) {
 			// Split table into two halves
 			int halfSize = table.length / 2;
+			@SuppressWarnings("unchecked")
 			T[] leftTable =  (T[]) new Comparable[halfSize];
+			@SuppressWarnings("unchecked")
 			T[] rightTable = (T[]) new Comparable[table.length -  halfSize];
 			System.arraycopy(table, 0, leftTable, 0, halfSize);
 			System.arraycopy(table, halfSize, rightTable, 0, table.length - halfSize);
@@ -87,10 +89,13 @@ public class MergeSort {
 	}
 	
 	public static <T> String toString(T[] table) {
-		String result = "";
-		for(T  t: table) {
-			result += String.valueOf(t) + " ";
+		String result = "[";
+		int i = 0;
+		for( ; i < table.length - 1; i++) {
+			result += String.valueOf(table[i]) + ", ";
 		}
+		
+		result += table[i] + "]";
 		
 		return result;
 	}
@@ -98,11 +103,14 @@ public class MergeSort {
 	
 //	Testing the merge sort algorithm
 	public static void main(String[] args) {
-		MergeSort ms = new MergeSort();
-		Integer[] arr = {55, 50, 10, 40, 80, 60, 90, 100, 70, 80, 20, 50, 22};
 		
-		String str = toString(sort(arr));
-		System.out.println(str);
+		Integer[] arr = {55, 50, 10, 40, 80, 60, 90, 100, 70, 80, -20, 50, 22};
+		
+		System.out.println("Before: " + toString(arr));
+		
+		MergeSort.sort(arr);
+		
+		System.out.println("After: " + toString(arr));
 	}
 	
 }
