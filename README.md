@@ -18,4 +18,4 @@ These are my implementations of the following sorting algorithms:
 ### Time Complexity: O(n^2) is the worst case, and O(n^[3/2]) in the best case
 ### Space Complexity: O(1) ==> Sorting is done in-place.
 
-PS: All the methods are generic and can be use to sort all kind of Comparable objects.
+PS: All the methods are generic and can be used to sort all kind of Comparable objects.
